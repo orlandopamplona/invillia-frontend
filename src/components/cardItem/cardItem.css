@@ -1,0 +1,75 @@
+.divCardItem {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.divTable {
+    padding: 15px;
+    width: 60%;
+}
+
+.divAvatar {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 350px;
+    text-align: center;
+}
+
+.divAvatarName {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    color: #4d4d4d;
+}
+
+
+table {
+    width: 100%;
+    border: 1px solid #ffffff;
+}
+
+th {
+    text-align: center;
+    border: 1px solid #000000;
+    background-color: #000000;
+    color: #fff;
+}
+
+td {
+    text-align: center;
+    border: 1px solid #ffffff;
+    font-weight: bold;
+    background-color: #b3b3b3;
+}
+
+.divLinkShip {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.divLinkShip.img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 50%;
+}
+
+.divLinkShipImage {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
