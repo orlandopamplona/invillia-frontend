@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo of the project](./images/logo.png)
 
-## Available Scripts
+# Challenge Invillia - Teste FrontEnd que faz uso de uma API já existente(Personagens Star Wars) para exibição dos dados (desenvolvido com React)
 
-In the project directory, you can run:
+O projeto de Front foi criado com o auxílio do [Create React App](https://pt-br.reactjs.org/docs/create-a-new-react-app.html), fazendo uso de [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html), bem como, de componentes de classe, em alguns momentos recebendo o estilo por parametro e em outros, tendo seu próprio arquivo de estilo, de forma a diversificar possibilidades de implementação da solução.
 
-### `npm start`
+Devido ao tempo reduzido para a execução dos testes, alguns requisito não foram tratados, sendo:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Testes unitários: Foram implementados, porém de forma simplista, sendo necessário uma maior cobertura para adequação, entretanto, com a implementação realizada já é possível avaliar este requisito.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Testes e2e: Requisito não tratado na solução (uma alternativa seria subir um ambiente utilizando docker com a aplicação e cobrir os cenários de testes com por exemplo, as ferramentas robot + selenium)
+  
+- Responsividade: Este requisito foi completamente ignorado, sendo trabalhado com base em uma única resolução (para a implementação iria utilizar css com @media, seguindo o princípio de mobile first, cobrindo todas as faixas de resolução comumente encontradas).
+  
+- Paginação: Foi considerada na solução fazendo um do recurso de scroll infinito, com carregamento por demanda.
+  
+- UI/UX: Considerados na resolução, entretanto, não foram aplicados todos os princípios e conceitos necessários para a aplicação ser considerada aderente.
+  
+- Imagens dos personagens: Item considerado e implementado na solução.
 
-### `npm test`
+Outros fatores como internacionalização, acessibilidade, comentários de código, padronização/tratamento de mensagens de erro, padronização (esta de forma proposital para ilustrar formas distintas de utilização do framework), apesar de não estarem explicitamente citados como requeridos, mas também importantes, foram desconsiderados devido a restrição do tempo para implementar a solução.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Os seguintes componentes foram desenvolvidos:
 
-### `npm run build`
+> - cardItem >
+Elemento quer irá exibir as informações de um determinado personagem (imagem e características físicas fornecidas pela API).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> - cardItemMenu >
+Apresenta o identificador do personagem (apenas imagem e nome) para que seja clicado, disparando assim, a exibição dos detalhes daquele personagem representado pelo mesmo.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+> - cardMenu >
+Apresenta o agrupamento dos elementos cardItemMenu em forma de listagem contínua (aqui é utilizado o recurso de scroll infinito), permitindo a rolagem para que o usuário escolha qual personagem quer visualizar.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> - starShipModal >
+Apresenta uma especie de card especívido para as naves que é exibido somente para os personagens que possuem a relação com alguma.
 
-### `npm run eject`
+> - model >
+Tela em formato model que contém os dados do starShipModal que será apresentado.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Por padrão, o sistema irá executar localmente na seguinte url: http://localhost:3000), sendo:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Tela principal do sistema:**
+![Main screen](./images/telaPrincipal.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Detalhes de uma nave sendo exibidos:**
+![Simulate screen](./images/telaDetalheShip.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Instalação para desenvolvimento (ambiente e execução)
 
-## Learn More
+Necessários o seguinte para a correta execução:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Instalação do Node.js, [clique aqui para as instruções](https://nodejs.org/en/download/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Após instalado, abrir um console e digitar:
 
-### Code Splitting
+  * Instalar as dependencias do projeto com: `npm install`
+  * Executar o projeto `npm run start`
+  Após isto, o mesmo poderá ser observado na seguinte url [`localhost:3000`](http://localhost:3000) no browser correspondente (homologação realizada para as versões recentes do Chrome apenas).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Execução dos testes
 
-### Analyzing the Bundle Size
+Considerando que o ambiente já esteja configurado conforme instruções anteriores, digite o seguinte em um console do projeto:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```shell
+npm run test
+```
 
-### Making a Progressive Web App
+Será executado o script de testes do projeto (testes dos componentes individuais e teste do fluxo principal de simulação). 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Os testes fazem uso de mock, e também fazem acesso direto na API, sendo necessário que a mesma esteja acessível para a execução dos mesmos execução dos mesmos.
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Um relatório html com detalhes da execução pode ser observado na pasta "coverage", na raiz do projeto.

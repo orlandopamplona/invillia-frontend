@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import StarShipModal  from "../starShipModal/starShipModal"
+import StarShipModal from "../starShipModal/starShipModal"
 import './cardItem.css'
 
 export default function CardItem(props) {
@@ -8,7 +8,6 @@ export default function CardItem(props) {
 
     const createStarShipsViewer = (starshipLink) => {
         if (starshipLink) {
-            console.log('starshipLink: ', starshipLink)
             setStartship(starshipLink)
         }
     }
