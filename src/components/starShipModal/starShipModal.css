@@ -1,0 +1,13 @@
+.divStartShip {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.divAvatarStarShip {
+    width: 30%;
+}
+
+.divTableStarShip {
+    min-width: 50%;
+}

@@ -1,46 +1,23 @@
-import React from "react"
-import qwest from 'qwest';
-import './cardItem.css';
+import React, { useState } from "react"
+import StarShipModal  from "../starShipModal/starShipModal"
+import './cardItem.css'
 
 export default function CardItem(props) {
 
+    const [startship, setStartship] = useState()
 
-    const loadStarShips = (url) => {
-        var self = this;
-
-        qwest.get(url, {
-            page_size: 10
-        }, {
-            cache: true
-        })
-            .then(function (xhr, resp) {
-                if (resp) {
-                    var characters = self.state.characters;
-
-                    resp.results.map((character) => {
-                        return characters.push(character);
-                    });
-                    if (resp.next) {
-                        self.setState({
-                            characters: characters,
-                            nextHref: resp.next
-                        });
-                    } else {
-                        self.setState({
-                            hasMoreItems: false
-                        });
-                    }
-                }
-            });
+    const createStarShipsViewer = (starshipLink) => {
+        if (starshipLink) {
+            console.log('starshipLink: ', starshipLink)
+            setStartship(starshipLink)
+        }
     }
 
     const createStarShipsLinks = (starships) => {
         if (starships) {
             return starships.map((starship) => {
                 return <div className="divLinkShipImage">
-                    <a href={starship}>
-                        <img src="/img/defaultLink.png" alt={starship} />
-                    </a>
+                    <img src="/img/defaultLink.png" alt={starship} onClick={() => createStarShipsViewer(starship)} />
                 </div>
             })
         }
@@ -80,9 +57,9 @@ export default function CardItem(props) {
                         <td>{props.character.gender}</td>
                         <td>
                             {props.character.starships && <div className="divLinkShip">
-                            {createStarShipsLinks(props.character.starships)}
+                                {createStarShipsLinks(props.character.starships)}
                             </div>}
-                            
+                            <StarShipModal url={startship}></StarShipModal>
                         </td>
                     </tr>
                 </table>
